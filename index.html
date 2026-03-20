@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Julia Morán Pérez — CV+</title>
+</head>
+<body>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.dp{background:#0A1628;color:#fff;font-family:'Inter',sans-serif}
+.nav{background:#0A1628ee;padding:11px 28px;display:flex;align-items:center;gap:24px;border-bottom:1px solid #1a2a3a;position:sticky;top:0;z-index:100}
+.logo-t{font-size:15px;font-weight:900;color:#113CCA;letter-spacing:-0.5px}
+.logo-p{font-size:15px;font-weight:900;color:#fff}
+.nav-links{display:flex;gap:3px}
+.nl{font-size:12px;color:#7a9ab0;cursor:pointer;padding:5px 12px;border-radius:18px;transition:all 0.2s;font-weight:500;border:none;background:none;white-space:nowrap}
+.nl:hover{color:#fff;background:#1a2a3a}
+.nl.active{color:#fff;background:#113CCA}
+.nav-right{margin-left:auto}
+.nav-av{width:30px;height:30px;border-radius:50%;background:#113CCA;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+
+.sec{display:none}.sec.on{display:block}
+
+.hero{background:#0D1F38;padding:36px 28px 28px;position:relative;overflow:hidden}
+.hero-starbg{position:absolute;inset:0;pointer-events:none}
+.hero-inner{position:relative;display:flex;gap:24px;align-items:flex-start}
+.hero-poster{width:128px;height:178px;background:#113CCA;border-radius:8px;border:2px solid #1D6FE8;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.hero-info{flex:1}
+.badge{display:inline-flex;align-items:center;gap:5px;background:#113CCA;color:#8ec7ff;font-size:9px;font-weight:700;padding:3px 10px;border-radius:3px;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.hero-name{font-size:30px;font-weight:900;color:#fff;line-height:1.05;margin-bottom:3px}
+.hero-role{font-size:13px;color:#8aa3c4;font-style:italic;margin-bottom:11px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:5px 14px;margin-bottom:13px}
+.htag{font-size:11px;color:#6a8aaa;display:flex;align-items:center;gap:4px}
+.hdot{width:3px;height:3px;border-radius:50%;background:#1D6FE8}
+.htag.g{color:#4CAF50}.htag.g .hdot{background:#4CAF50}
+.hero-btns{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.bw{background:#fff;color:#0A1628;font-size:12px;font-weight:700;padding:8px 18px;border-radius:5px;cursor:pointer;border:none;display:flex;align-items:center;gap:5px}
+.bg{background:rgba(255,255,255,0.12);color:#fff;font-size:12px;font-weight:600;padding:8px 16px;border-radius:5px;cursor:pointer;border:none}
+.tri{width:0;height:0;border-style:solid;border-width:5px 0 5px 9px;border-color:transparent transparent transparent #0A1628}
+.hero-desc{font-size:12px;color:#7a9ab0;line-height:1.65;max-width:560px}
+
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:18px 28px}
+.stat{background:#0D1F38;border-radius:8px;padding:13px;border:1px solid #1a2a3a;text-align:center}
+.sn{font-size:24px;font-weight:900;color:#fff;line-height:1}
+.sl{font-size:10px;color:#6a8aaa;margin-top:3px;line-height:1.3}
+.sbar{height:2px;background:#1a2a3a;border-radius:1px;margin-top:7px}
+.sfill{height:100%;background:#113CCA;border-radius:1px}
+
+.row-s{padding:18px 28px 0}
+.row-t{font-size:15px;font-weight:700;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.row-t span{font-size:10px;color:#6a8aaa;font-weight:400}
+.scroll-row{display:flex;gap:9px;overflow-x:auto;padding-bottom:4px}
+.scroll-row::-webkit-scrollbar{height:3px}
+.scroll-row::-webkit-scrollbar-thumb{background:#1D6FE8;border-radius:2px}
+.scroll-row::-webkit-scrollbar-track{background:#0D1F38}
+
+.pc{flex-shrink:0;width:156px;background:#0D1F38;border-radius:8px;padding:10px;border:1px solid #1a2a3a;cursor:pointer}
+.pc:hover{border-color:#1D6FE8}
+.pt{font-size:11px;font-weight:600;color:#fff;margin-bottom:2px}
+.ps{font-size:10px;color:#6a8aaa;margin-bottom:6px}
+.pb{height:3px;background:#1a2a3a;border-radius:2px;overflow:hidden}
+.pf{height:100%;border-radius:2px}
+
+.ec{flex-shrink:0;width:164px;cursor:pointer;border-radius:8px;overflow:hidden;border:2px solid transparent;transition:border-color 0.2s}
+.ec:hover{border-color:#fff}
+.ec.sel{border-color:#1D6FE8}
+.et{height:92px;position:relative;display:flex;align-items:flex-end;padding:8px}
+.etbg{position:absolute;inset:0}
+.etc{position:relative;z-index:1}
+.eco{font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px #000}
+.ejt{font-size:10px;color:#cde;text-shadow:0 1px 4px #000}
+.ef{background:#0D1F38;padding:7px 8px;display:flex;align-items:center;justify-content:space-between}
+.ed{font-size:10px;color:#6a8aaa}
+.eb{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px}
+
+.rec-card{background:#0D1F38;border-radius:8px;padding:16px;border:1px solid #1a2a3a;flex-shrink:0;width:260px}
+.rav{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-bottom:8px}
+.rstar{color:#FFD700;font-size:12px;margin-bottom:7px;letter-spacing:1px}
+.rtext{font-size:11.5px;color:#7a9ab0;line-height:1.6;font-style:italic;margin-bottom:10px}
+.rname{font-size:11px;color:#fff;font-weight:600}
+.rrole{font-size:10px;color:#6a8aaa}
+
+.exp-hero{background:#0D1F38;padding:24px 28px;border-bottom:1px solid #1a2a3a}
+.eht{font-size:20px;font-weight:800;color:#fff;margin-bottom:4px}
+.ehs{font-size:12px;color:#6a8aaa}
+.job-list{padding:0 28px}
+.jb{padding:22px 0;border-bottom:1px solid #1a2a3a}
+.jb:last-child{border-bottom:none}
+.jtop{display:flex;gap:13px;align-items:flex-start;margin-bottom:12px}
+.jlogo{width:46px;height:46px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+.jhead{flex:1}
+.jtitle{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}
+.jco{font-size:12px;color:#1D6FE8;font-weight:600;margin-bottom:3px}
+.jmeta{display:flex;gap:10px;flex-wrap:wrap}
+.jmi{font-size:10px;color:#6a8aaa}
+.jdesc{font-size:12px;color:#8aa3c4;line-height:1.6;margin-bottom:11px;font-style:italic}
+.buls{display:flex;flex-direction:column;gap:7px}
+.bul{display:flex;gap:7px;font-size:11.5px;color:#9ab4c8;line-height:1.55}
+.bs{color:#1D6FE8;flex-shrink:0;font-size:10px;margin-top:2px}
+.itags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.it{background:#0A1E3A;border:1px solid #1D6FE8;color:#8ec7ff;font-size:10px;padding:2px 8px;border-radius:11px}
+
+.skills-wrap{padding:24px 28px}
+.sg{background:#0D1F38;border-radius:10px;padding:16px;border:1px solid #1a2a3a;margin-bottom:12px}
+.sgt{font-size:11px;font-weight:700;color:#1D6FE8;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.sri{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.srn{font-size:11.5px;color:#c8d8e8;width:150px;flex-shrink:0}
+.srt{flex:1;height:4px;background:#1a2a3a;border-radius:2px;overflow:hidden}
+.srl{height:100%;border-radius:2px;background:#1D6FE8}
+.srp{font-size:10px;color:#6a8aaa;width:28px;text-align:right}
+.tools-wrap{padding:0 28px 24px}
+.twt{font-size:14px;font-weight:700;color:#fff;margin-bottom:11px}
+.tfl{display:flex;flex-wrap:wrap;gap:7px}
+.tc{background:#0D1F38;border:1px solid #1a2a3a;border-radius:6px;padding:6px 12px;display:flex;align-items:center;gap:5px;font-size:11px;color:#8aa3c4;cursor:pointer;transition:border-color 0.2s}
+.tc:hover{border-color:#1D6FE8;color:#fff}
+.td{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+.edu-wrap{padding:24px 28px}
+.edu-bl{background:#0D1F38;border-radius:10px;padding:18px;border:1px solid #1a2a3a;display:flex;gap:14px;margin-bottom:12px}
+.edu-ic{width:46px;height:46px;border-radius:8px;background:#0A1E3A;border:1px solid #1D6FE8;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.edu-st{font-size:9px;color:#1D6FE8;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:3px}
+.edu-deg{font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
+.edu-sch{font-size:11px;color:#6a8aaa;margin-bottom:9px}
+.edu-pb{height:4px;background:#1a2a3a;border-radius:2px;overflow:hidden;margin-bottom:3px}
+.edu-pf{height:100%;border-radius:2px}
+.edu-pc{font-size:10px;color:#6a8aaa}
+.lang-wrap{padding:0 28px 28px}
+.lwt{font-size:14px;font-weight:700;color:#fff;margin-bottom:11px}
+.lcs{display:flex;gap:10px}
+.lc{background:#0D1F38;border-radius:8px;padding:14px 18px;border:1px solid #1a2a3a;flex:1;text-align:center}
+.ln{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.ll{font-size:11px;color:#1D6FE8}
+.lstars{font-size:13px;color:#FFD700;margin-top:5px}
+
+.footer{padding:18px 28px;border-top:1px solid #1a2a3a;display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.fl{font-size:11px;color:#3a5a7a}
+.fl a{color:#1D6FE8;text-decoration:none}
+.fc{font-size:10px;color:#3a5a7a}
+</style>
+
+<div class="dp">
+  <div class="nav">
+    <span class="logo-t">CV</span><span class="logo-p">+</span>
+    <div class="nav-links">
+      <button class="nl active" onclick="show('inicio',this)">Home</button>
+      <button class="nl" onclick="show('exp',this)">Experience</button>
+      <button class="nl" onclick="show('skills',this)">Skills</button>
+      <button class="nl" onclick="show('edu',this)">Education</button>
+    </div>
+    <div class="nav-right"><div class="nav-av">JM</div></div>
+  </div>
+
+  <!-- HOME -->
+  <div id="s-inicio" class="sec on">
+    <div class="hero">
+      <div class="hero-starbg" id="starbg"></div>
+      <div class="hero-inner">
+        <div class="hero-poster">
+          <svg width="62" height="68" viewBox="0 0 62 68">
+            <rect x="5" y="44" width="52" height="20" rx="1.5" fill="#1D6FE8"/>
+            <rect x="12" y="31" width="13" height="15" rx="1" fill="#1D6FE8"/>
+            <rect x="37" y="31" width="13" height="15" rx="1" fill="#1D6FE8"/>
+            <rect x="22" y="23" width="18" height="23" rx="1" fill="#0D3BA8"/>
+            <path d="M31 8 L38 23 L24 23 Z" fill="#1D6FE8"/>
+            <path d="M13 31 L13 26 L15.5 26 L15.5 29 L18.5 29 L18.5 26 L21 26 L21 31" fill="#0A1628" stroke="#4a8ad4" stroke-width="0.6"/>
+            <path d="M38 31 L38 26 L40.5 26 L40.5 29 L43.5 29 L43.5 26 L46 26 L46 31" fill="#0A1628" stroke="#4a8ad4" stroke-width="0.6"/>
+            <path d="M23 23 L23 18 L26 18 L26 21 L29 21 L29 18 L31 18 L31 23" fill="#0A1628" stroke="#4a8ad4" stroke-width="0.6"/>
+            <path d="M31 23 L31 18 L33 18 L33 21 L36 21 L36 18 L39 18 L39 23" fill="#0A1628" stroke="#4a8ad4" stroke-width="0.6"/>
+            <rect x="27.5" y="41" width="7" height="11" rx="1" fill="#0A1628"/>
+            <rect x="28.5" y="33" width="5" height="5" rx="0.5" fill="#4a8ad4" opacity="0.7"/>
+            <rect x="15" y="35" width="7" height="4" rx="0.5" fill="#4a8ad4" opacity="0.6"/>
+            <rect x="40" y="35" width="7" height="4" rx="0.5" fill="#4a8ad4" opacity="0.6"/>
+            <polygon points="31,3 32.5,8 37.5,8 33.5,11 35,16 31,13 27,16 28.5,11 24.5,8 29.5,8" fill="#FFD700"/>
+          </svg>
+          <div style="font-size:8px;color:#8aa3c4;letter-spacing:2px;text-align:center;padding:0 6px">JULIA M.P.</div>
+        </div>
+        <div class="hero-info">
+          <div class="badge">✦ Top Candidate · 97% match</div>
+          <div class="hero-name">Julia Morán Pérez</div>
+          <div class="hero-role">Social Media &amp; Digital Content Coordinator</div>
+          <div class="hero-tags">
+            <span class="htag"><span class="hdot"></span>Madrid, Spain</span>
+            <span class="htag"><span class="hdot"></span>3+ years exp.</span>
+            <span class="htag"><span class="hdot"></span>Available now</span>
+            <span class="htag g"><span class="hdot"></span>97% Disney+ match</span>
+          </div>
+          <div class="hero-btns">
+            <button class="bw" onclick="show('exp',document.querySelectorAll('.nl')[1])"><span class="tri"></span>&nbsp;View Experience</button>
+            <button class="bg" onclick="show('skills',document.querySelectorAll('.nl')[2])">+ Skills</button>
+          </div>
+          <div class="hero-desc">Social Media &amp; Content Coordinator with 3+ years executing digital strategies for high-profile media and entertainment brands. Track record growing audiences (+60K followers in 12 months), driving engagement, and turning complex narratives into compelling content. Data-informed, creativity-led — ready for Disney+ Spain.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat"><div class="sn">+60K</div><div class="sl">LinkedIn followers in 12 months</div><div class="sbar"><div class="sfill" style="width:95%"></div></div></div>
+      <div class="stat"><div class="sn">3+</div><div class="sl">Years in social media &amp; content</div><div class="sbar"><div class="sfill" style="width:70%"></div></div></div>
+      <div class="stat"><div class="sn">1.5K</div><div class="sl">Global employees reached at Recurrent</div><div class="sbar"><div class="sfill" style="width:85%"></div></div></div>
+      <div class="stat"><div class="sn">5+</div><div class="sl">Entertainment brands managed</div><div class="sbar"><div class="sfill" style="width:60%"></div></div></div>
+    </div>
+
+    <div class="row-s">
+      <div class="row-t">Continue where you left off</div>
+      <div class="scroll-row">
+        <div class="pc" onclick="show('exp',document.querySelectorAll('.nl')[1])"><div class="pt">Recurrent Energy</div><div class="ps">Internal Comms · 2024–now</div><div class="pb"><div class="pf" style="width:100%;background:#1D6FE8"></div></div></div>
+        <div class="pc" onclick="show('exp',document.querySelectorAll('.nl')[1])"><div class="pt">¡HELLO! Magazine</div><div class="ps">Social Media Mgr · 2024</div><div class="pb"><div class="pf" style="width:100%;background:#1D6FE8"></div></div></div>
+        <div class="pc" onclick="show('edu',document.querySelectorAll('.nl')[3])"><div class="pt">MSc Corporate Comm.</div><div class="ps">UCM · In progress</div><div class="pb"><div class="pf" style="width:60%;background:#FFD700"></div></div></div>
+        <div class="pc" onclick="show('exp',document.querySelectorAll('.nl')[1])"><div class="pt">Mediaset España</div><div class="ps">Social Media Mgr · 2023</div><div class="pb"><div class="pf" style="width:100%;background:#1D6FE8"></div></div></div>
+        <div class="pc" style="border-style:dashed;border-color:#FFD70066" onclick="show('skills',document.querySelectorAll('.nl')[2])"><div class="pt" style="color:#FFD700">Disney+ Spain</div><div class="ps">Your next chapter</div><div class="pb"><div class="pf" style="width:5%;background:#FFD700"></div></div></div>
+      </div>
+    </div>
+
+    <div class="row-s" style="margin-top:20px">
+      <div class="row-t">Experience — Highlights <span>click to see full detail</span></div>
+      <div class="scroll-row">
+        <div class="ec sel" onclick="show('exp',document.querySelectorAll('.nl')[1])">
+          <div class="et"><div class="etbg" style="background:#0D2A6E;border-radius:6px 6px 0 0"></div><svg style="position:absolute;top:8px;right:8px;width:26px;height:26px" viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="#113CCA"/><text x="13" y="17" text-anchor="middle" font-size="8" font-weight="900" fill="white" font-family="Arial">RE</text></svg><div class="etc"><div class="eco">Recurrent Energy</div><div class="ejt">Internal Comms Coord.</div></div></div>
+          <div class="ef"><span class="ed">2024–Now</span><span class="eb" style="background:#1D6FE8;color:#fff">Current</span></div>
+        </div>
+        <div class="ec" onclick="show('exp',document.querySelectorAll('.nl')[1])">
+          <div class="et"><div class="etbg" style="background:#2a0a3e;border-radius:6px 6px 0 0"></div><svg style="position:absolute;top:8px;right:8px;width:26px;height:26px" viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="#7B1FA2"/><text x="13" y="17" text-anchor="middle" font-size="7" font-weight="900" fill="white" font-family="Arial">HOLA</text></svg><div class="etc"><div class="eco">¡HELLO! Magazine</div><div class="ejt">Social Media Manager</div></div></div>
+          <div class="ef"><span class="ed">Mar–Jul 2024</span><span class="eb" style="background:#2a1a3a;color:#c4a0f0">Entertainment</span></div>
+        </div>
+        <div class="ec" onclick="show('exp',document.querySelectorAll('.nl')[1])">
+          <div class="et"><div class="etbg" style="background:#2a0a0a;border-radius:6px 6px 0 0"></div><svg style="position:absolute;top:8px;right:8px;width:26px;height:26px" viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="#C62828"/><text x="13" y="17" text-anchor="middle" font-size="8" font-weight="900" fill="white" font-family="Arial">MS</text></svg><div class="etc"><div class="eco">Mediaset España</div><div class="ejt">Social Media Manager</div></div></div>
+          <div class="ef"><span class="ed">Oct 23–Mar 24</span><span class="eb" style="background:#2a0a0a;color:#f09595">Streaming</span></div>
+        </div>
+        <div class="ec" style="border-color:#FFD70044">
+          <div class="et"><div class="etbg" style="background:#0A1628;border-radius:6px 6px 0 0;border:1px dashed #FFD70044"></div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px"><div style="width:26px;height:26px;border-radius:50%;background:#113CCA;display:flex;align-items:center;justify-content:center;font-size:16px;color:#FFD700;font-weight:900">+</div><div style="font-size:9px;color:#6a8aaa;text-align:center">Your next<br>chapter</div></div></div>
+          <div class="ef"><span class="ed">Disney+</span><span class="eb" style="color:#FFD700">2025 →</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-s" style="margin-top:20px;padding-bottom:8px">
+      <div class="row-t">Recommendations</div>
+      <div class="scroll-row">
+        <div class="rec-card">
+          <div class="rav" style="background:#1D3A6E;color:#8ec7ff">UL</div>
+          <div class="rstar">★★★★★</div>
+          <div class="rtext">"Julia has an exceptional ability to understand the brand's voice and translate it into content that genuinely resonates. Her LinkedIn strategy was transformative — she grew our account beyond anything we expected, with creativity and rigour in equal measure."</div>
+          <div class="rname">Ujue Lorente</div>
+          <div class="rrole">Recurrent Energy</div>
+        </div>
+        <div class="rec-card">
+          <div class="rav" style="background:#0a2a1a;color:#9FE1CB">NH</div>
+          <div class="rstar">★★★★★</div>
+          <div class="rtext">"Working with Julia is a pleasure. She brings real ownership to every project — her content calendars are impeccable, her instinct for audience engagement is sharp, and her analytics reports always translate data into clear, actionable next steps."</div>
+          <div class="rname">Natalia Herrera</div>
+          <div class="rrole">Recurrent Energy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="fl">julia.moran.perez@gmail.com · +34 620 88 38 59 · <a href="https://www.linkedin.com/in/juliamoranperez" target="_blank">linkedin.com/in/juliamoranperez</a></div>
+      <div class="fc">CV+ © 2026 Julia Morán Pérez</div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div id="s-exp" class="sec">
+    <div class="exp-hero">
+      <div class="badge" style="margin-bottom:8px">3 positions · 2023–Present</div>
+      <div class="eht">Professional Experience</div>
+      <div class="ehs">Career in media, entertainment and global corporate communications</div>
+    </div>
+    <div class="job-list">
+      <div class="jb">
+        <div class="jtop">
+          <div class="jlogo" style="background:#0D2A6E;color:#8ec7ff">RE</div>
+          <div class="jhead">
+            <div class="jtitle">Internal Communications &amp; Content Coordinator</div>
+            <div class="jco">Recurrent Energy</div>
+            <div class="jmeta"><span class="jmi"><span style="color:#4CAF50">●</span> Sep 2024 – Present</span>&nbsp;&nbsp;<span class="jmi">● Madrid, Spain</span>&nbsp;&nbsp;<span class="jmi">● Renewable Energy · Global</span></div>
+          </div>
+          <div class="eb" style="background:#1D6FE8;color:#fff;padding:4px 10px;border-radius:4px;font-size:10px;white-space:nowrap">Current</div>
+        </div>
+        <div class="jdesc">Led internal and digital content communications for a global renewable energy company with 1,500+ employees worldwide, managing LinkedIn strategy alongside internal channels including newsletters, Microsoft Teams and virtual Town Halls.</div>
+        <div class="buls">
+          <div class="bul"><span class="bs">★</span>Owned LinkedIn content strategy end-to-end, growing the account by +60,000 followers in under 12 months and increasing organic reach across global markets.</div>
+          <div class="bul"><span class="bs">★</span>Developed monthly content calendars aligned with corporate milestones and campaign cycles; coordinated publishing across internal and external channels.</div>
+          <div class="bul"><span class="bs">★</span>Translated complex business initiatives into clear, audience-adapted messaging for a multi-country workforce — skills directly transferable to entertainment audience communication.</div>
+          <div class="bul"><span class="bs">★</span>Designed visually consistent materials (infographics, announcements, event assets) using Canva and Adobe Photoshop, ensuring brand coherence across all touchpoints.</div>
+          <div class="bul"><span class="bs">★</span>Tracked open rates and engagement KPIs to continuously optimise performance across newsletters, Teams campaigns, and LinkedIn posts.</div>
+          <div class="bul"><span class="bs">★</span>Coordinated virtual Town Halls and global employee events for 1,500+ employees, managing content strategy, logistics, and post-event reporting.</div>
+          <div class="bul"><span class="bs">★</span>Partnered with HR, leadership and regional teams to co-create campaigns supporting policy rollouts and organisational change.</div>
+        </div>
+        <div class="itags"><span class="it">+60K LinkedIn followers</span><span class="it">1,500+ global employees</span><span class="it">Content calendars</span><span class="it">KPIs &amp; analytics</span><span class="it">Canva · Adobe PS</span></div>
+      </div>
+
+      <div class="jb">
+        <div class="jtop">
+          <div class="jlogo" style="background:#3a1060;color:#e0b0ff">HO</div>
+          <div class="jhead">
+            <div class="jtitle">Social Media Manager</div>
+            <div class="jco">¡HELLO! Magazine</div>
+            <div class="jmeta"><span class="jmi">● Mar 2024 – Jul 2024</span>&nbsp;&nbsp;<span class="jmi">● Madrid, Spain</span>&nbsp;&nbsp;<span class="jmi">● Entertainment · Media</span></div>
+          </div>
+        </div>
+        <div class="jdesc">Managed the main social media accounts of HOLA!, one of Spain's most recognised entertainment and lifestyle magazines, creating high-engagement content in a fast-paced editorial environment.</div>
+        <div class="buls">
+          <div class="bul"><span class="bs">★</span>Managed flagship social accounts, publishing high-volume, high-engagement content daily aligned with brand voice and entertainment editorial direction.</div>
+          <div class="bul"><span class="bs">★</span>Drove measurable audience growth through real-time trend analysis, A/B testing, and data-informed optimisation — iterating on best-performing formats.</div>
+          <div class="bul"><span class="bs">★</span>Coordinated joint campaigns with partner brands, managing briefings, content reviews, and publishing timelines across collaborating teams.</div>
+          <div class="bul"><span class="bs">★</span>Produced real-time social content at high-profile entertainment events, capturing live moments with strong awareness of audience expectations.</div>
+          <div class="bul"><span class="bs">★</span>Maintained consistent tone, visual identity and posting cadence across platforms under tight editorial deadlines.</div>
+        </div>
+        <div class="itags"><span class="it">Live event coverage</span><span class="it">A/B testing</span><span class="it">Partner campaigns</span><span class="it">Meta Business Suite</span><span class="it">Trend analysis</span></div>
+      </div>
+
+      <div class="jb">
+        <div class="jtop">
+          <div class="jlogo" style="background:#3a0808;color:#f09595">MS</div>
+          <div class="jhead">
+            <div class="jtitle">Social Media Manager</div>
+            <div class="jco">Mediaset España</div>
+            <div class="jmeta"><span class="jmi">● Oct 2023 – Mar 2024</span>&nbsp;&nbsp;<span class="jmi">● Madrid, Spain</span>&nbsp;&nbsp;<span class="jmi">● Broadcasting · Streaming</span></div>
+          </div>
+        </div>
+        <div class="jdesc">Developed content strategies for Instagram and TikTok for Spain's leading broadcasting and streaming group, managing multiple brand accounts simultaneously in a deadline-driven environment.</div>
+        <div class="buls">
+          <div class="bul"><span class="bs">★</span>Developed and executed content strategies for Instagram and TikTok across multiple brand accounts, increasing reach and engagement for entertainment properties.</div>
+          <div class="bul"><span class="bs">★</span>Produced platform-native creative content (short-form video, reels, stories) aligned with each brand's positioning and audience behaviour.</div>
+          <div class="bul"><span class="bs">★</span>Managed simultaneous multi-account publishing, maintaining distinct tone of voice and visual language across different programme identities.</div>
+          <div class="bul"><span class="bs">★</span>Collaborated with creative, editorial and marketing teams, coordinating content delivery for live programming moments and campaign launches.</div>
+          <div class="bul"><span class="bs">★</span>Monitored KPIs (reach, engagement rate, follower growth, saves) and compiled performance reports to inform the next content cycle.</div>
+        </div>
+        <div class="itags"><span class="it">Instagram &amp; TikTok</span><span class="it">Short-form video</span><span class="it">Multi-account mgmt</span><span class="it">Performance reports</span><span class="it">CapCut · Premiere</span></div>
+      </div>
+    </div>
+    <div class="footer"><div class="fl">julia.moran.perez@gmail.com · <a href="https://www.linkedin.com/in/juliamoranperez" target="_blank">linkedin.com/in/juliamoranperez</a></div><div class="fc">CV+ © 2026</div></div>
+  </div>
+
+  <!-- SKILLS -->
+  <div id="s-skills" class="sec">
+    <div class="exp-hero">
+      <div class="badge" style="margin-bottom:8px">Competency profile</div>
+      <div class="eht">Skills &amp; Tools</div>
+      <div class="ehs">Key competencies aligned with the Social Media Coordinator role at Disney+</div>
+    </div>
+    <div class="skills-wrap">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="sg">
+          <div class="sgt">Social Media &amp; Content</div>
+          <div class="sri"><span class="srn">Social Media Strategy</span><div class="srt"><div class="srl" style="width:95%"></div></div><span class="srp">95%</span></div>
+          <div class="sri"><span class="srn">Content Planning</span><div class="srt"><div class="srl" style="width:92%"></div></div><span class="srp">92%</span></div>
+          <div class="sri"><span class="srn">Audience Engagement</span><div class="srt"><div class="srl" style="width:90%"></div></div><span class="srp">90%</span></div>
+          <div class="sri"><span class="srn">Trend Analysis</span><div class="srt"><div class="srl" style="width:88%"></div></div><span class="srp">88%</span></div>
+          <div class="sri"><span class="srn">Short-form Video</span><div class="srt"><div class="srl" style="width:85%"></div></div><span class="srp">85%</span></div>
+          <div class="sri"><span class="srn">Community Building</span><div class="srt"><div class="srl" style="width:83%"></div></div><span class="srp">83%</span></div>
+        </div>
+        <div class="sg">
+          <div class="sgt">Strategy &amp; Analytics</div>
+          <div class="sri"><span class="srn">Campaign Coordination</span><div class="srt"><div class="srl" style="width:90%"></div></div><span class="srp">90%</span></div>
+          <div class="sri"><span class="srn">Performance Analytics</span><div class="srt"><div class="srl" style="width:88%"></div></div><span class="srp">88%</span></div>
+          <div class="sri"><span class="srn">Brand Voice Mgmt</span><div class="srt"><div class="srl" style="width:92%"></div></div><span class="srp">92%</span></div>
+          <div class="sri"><span class="srn">Cross-team Collab.</span><div class="srt"><div class="srl" style="width:90%"></div></div><span class="srp">90%</span></div>
+          <div class="sri"><span class="srn">Stakeholder Comms</span><div class="srt"><div class="srl" style="width:85%"></div></div><span class="srp">85%</span></div>
+          <div class="sri"><span class="srn">Reporting &amp; KPIs</span><div class="srt"><div class="srl" style="width:83%"></div></div><span class="srp">83%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tools-wrap">
+      <div class="twt">Tools &amp; Platforms</div>
+      <div class="tfl">
+        <div class="tc"><div class="td" style="background:#00C4CC"></div>Canva</div>
+        <div class="tc"><div class="td" style="background:#1877F2"></div>Meta Business Suite</div>
+        <div class="tc"><div class="td" style="background:#111"></div>TikTok</div>
+        <div class="tc"><div class="td" style="background:#E1306C"></div>Instagram</div>
+        <div class="tc"><div class="td" style="background:#FF0000"></div>Adobe Photoshop</div>
+        <div class="tc"><div class="td" style="background:#FF7C00"></div>Adobe InDesign</div>
+        <div class="tc"><div class="td" style="background:#31A8FF"></div>Premiere Pro</div>
+        <div class="tc"><div class="td" style="background:#00D2FF"></div>CapCut</div>
+        <div class="tc"><div class="td" style="background:#6264A7"></div>Microsoft Teams</div>
+        <div class="tc"><div class="td" style="background:#217346"></div>Microsoft Office</div>
+        <div class="tc"><div class="td" style="background:#F25022"></div>Analytics Dashboards</div>
+        <div class="tc"><div class="td" style="background:#4CAF50"></div>Content Scheduling</div>
+      </div>
+    </div>
+    <div class="footer"><div class="fl">julia.moran.perez@gmail.com · <a href="https://www.linkedin.com/in/juliamoranperez" target="_blank">linkedin.com/in/juliamoranperez</a></div><div class="fc">CV+ © 2026</div></div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div id="s-edu" class="sec">
+    <div class="exp-hero">
+      <div class="badge" style="margin-bottom:8px">Academic background</div>
+      <div class="eht">Education &amp; Languages</div>
+      <div class="ehs">Academic foundation in corporate communication and audiovisual media</div>
+    </div>
+    <div class="edu-wrap">
+      <div class="edu-bl">
+        <div class="edu-ic">🎓</div>
+        <div style="flex:1">
+          <div class="edu-st">In progress · 2024–2025</div>
+          <div class="edu-deg">MSc Corporate Communication</div>
+          <div class="edu-sch">Universidad Complutense de Madrid</div>
+          <div class="edu-pb"><div class="edu-pf" style="width:60%;background:#FFD700"></div></div>
+          <div class="edu-pc">60% completed · Expected graduation 2025</div>
+        </div>
+      </div>
+      <div class="edu-bl">
+        <div class="edu-ic">📺</div>
+        <div style="flex:1">
+          <div class="edu-st" style="color:#4CAF50">Completed</div>
+          <div class="edu-deg">BA Audiovisual Communication</div>
+          <div class="edu-sch">Universidad Rey Juan Carlos · Madrid</div>
+          <div class="edu-pb"><div class="edu-pf" style="width:100%;background:#4CAF50"></div></div>
+          <div class="edu-pc" style="color:#4CAF50">✓ Degree completed</div>
+        </div>
+      </div>
+    </div>
+    <div class="lang-wrap">
+      <div class="lwt">Languages</div>
+      <div class="lcs">
+        <div class="lc"><div class="ln">Spanish</div><div class="ll">Native Language</div><div class="lstars">★★★★★</div></div>
+        <div class="lc"><div class="ln">English</div><div class="ll">Professional Working Proficiency</div><div class="lstars">★★★★<span style="color:#2a3a4a">★</span></div></div>
+      </div>
+    </div>
+    <div class="footer"><div class="fl">julia.moran.perez@gmail.com · +34 620 88 38 59 · <a href="https://www.linkedin.com/in/juliamoranperez" target="_blank">linkedin.com/in/juliamoranperez</a></div><div class="fc">CV+ © 2026</div></div>
+  </div>
+</div>
+
+<script>
+function show(id,btn){
+  var map={inicio:'s-inicio',exp:'s-exp',skills:'s-skills',edu:'s-edu'};
+  document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on')});
+  var el=document.getE
+</body>
+</html>
